@@ -24,6 +24,11 @@ jobs:
           flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
           flatpak --user update -y
 
+      - name: Install required Flatpak SDKs
+        run: |
+          flatpak --user install -y flathub org.freedesktop.Sdk//23.08
+          flatpak --user install -y flathub org.freedesktop.Platform//23.08
+
       - name: Build Flatpak (User Mode)
         run: |
           flatpak-builder --user --repo=repo build-dir de.kidslab.mcreator.yml --force-clean
