@@ -3,7 +3,7 @@ name: Build Flatpak
 on:
   push:
     branches:
-      - main  # Oder dein Entwicklungsbranch
+      - main
   pull_request:
 
 jobs:
@@ -19,14 +19,14 @@ jobs:
           sudo apt update
           sudo apt install -y flatpak flatpak-builder
 
-      - name: Add Flathub Remote
+      - name: Add Flathub Remote (User Mode)
         run: |
-          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          flatpak update -y
+          flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak --user update -y
 
-      - name: Build Flatpak
+      - name: Build Flatpak (User Mode)
         run: |
-          flatpak-builder --repo=repo build-dir de.kidslab.mcreator.yml --force-clean
+          flatpak-builder --user --repo=repo build-dir de.kidslab.mcreator.yml --force-clean
 
       - name: Export as Bundle
         run: |
@@ -37,9 +37,3 @@ jobs:
         with:
           name: de.kidslab.mcreator
           path: de.kidslab.mcreator.flatpak
-
-     - name: Release Flatpak
-       if: startsWith(github.ref, 'refs/tags/')
-       uses: softprops/action-gh-release@v2
-       with:
-         files: de.kidslab.mcreator.flatpak
