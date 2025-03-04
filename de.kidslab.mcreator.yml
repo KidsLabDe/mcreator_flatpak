@@ -16,7 +16,7 @@ modules:
   - name: mcreator
     buildsystem: simple
     build-commands:
-      # Debug-Informationen
+      # Debug-Informationen...
       - echo "Current directory: $(pwd)"
       - ls -la
       
