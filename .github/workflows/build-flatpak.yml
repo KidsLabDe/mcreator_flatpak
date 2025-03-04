@@ -1,0 +1,45 @@
+name: Build Flatpak
+
+on:
+  push:
+    branches:
+      - main  # Oder dein Entwicklungsbranch
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Flatpak and Flatpak Builder
+        run: |
+          sudo apt update
+          sudo apt install -y flatpak flatpak-builder
+
+      - name: Add Flathub Remote
+        run: |
+          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak update -y
+
+      - name: Build Flatpak
+        run: |
+          flatpak-builder --repo=repo build-dir de.kidslab.mcreator.yml --force-clean
+
+      - name: Export as Bundle
+        run: |
+          flatpak build-bundle repo de.kidslab.mcreator.flatpak de.kidslab.mcreator --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
+
+      - name: Upload Flatpak Bundle as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: de.kidslab.mcreator
+          path: de.kidslab.mcreator.flatpak
+
+     - name: Release Flatpak
+       if: startsWith(github.ref, 'refs/tags/')
+       uses: softprops/action-gh-release@v2
+       with:
+         files: de.kidslab.mcreator.flatpak

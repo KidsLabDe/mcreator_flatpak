@@ -1,0 +1,64 @@
+app-id: de.kidslab.mcreator
+runtime: org.freedesktop.Platform
+runtime-version: '23.08'
+sdk: org.freedesktop.Sdk
+command: mcreator-launcher
+finish-args:
+  - --metadata
+  - --filesystem=home
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+  - --share=network
+  - --filesystem=xdg-data/icons
+modules:
+  - name: mcreator
+    buildsystem: simple
+    build-commands:
+      # Debug-Informationen
+      - echo "Current directory: $(pwd)"
+      - ls -la
+      
+      # Erstelle die Verzeichnisstruktur
+      - mkdir -p /app/bin
+      - mkdir -p /app/mcreator
+      
+      # Kopiere Dateien
+      - cp -r * /app/mcreator/
+      
+      # Erstelle das Launcher-Skript
+      - echo '#!/bin/sh' > /app/bin/mcreator-launcher
+      - echo 'cd /app/mcreator' >> /app/bin/mcreator-launcher
+      - echo 'export CLASSPATH="./lib/mcreator.jar:./lib/*"' >> /app/bin/mcreator-launcher
+      - echo './jdk/bin/java --add-opens=java.base/java.lang=ALL-UNNAMED net.mcreator.Launcher "$@"' >> /app/bin/mcreator-launcher
+      
+      # Mache das Skript ausführbar
+      - chmod 755 /app/bin/mcreator-launcher
+      
+      # Überprüfe die Installation
+      - ls -la /app/bin
+      - ls -la /app/mcreator
+      - cat /app/bin/mcreator-launcher
+
+      # Icon für Menüeintrag
+      - mkdir -p /app/share/icons/hicolor/128x128/apps
+      - cp /app/mcreator/icon.png /app/share/icons/hicolor/128x128/apps/de.kidslab.mcreator.png
+    sources:
+      - type: archive
+        url: https://github.com/MCreator/MCreator/releases/download/2024.4.52410/MCreator.2024.4.Linux.64bit.tar.gz
+        sha256: 0f8baed0237c6385088f2d92f0497539b0bddec4a6e2319fc846331d9cc53e7e  # Tatsächlicher SHA256-Hash der Datei
+      - type: file
+        path: mcreator-wrapper.sh
+
+
+# Füge hier den Menü-Eintrag hinzu, der die .desktop-Datei verwendet
+  
+  - name: mcreator-desktop
+    buildsystem: simple
+    build-commands:
+      - mkdir -p /app/share/applications
+      - cp de.kidslab.mcreator.desktop /app/share/applications/de.kidslab.mcreator.desktop
+    sources:
+      - type: file
+        path: de.kidslab.mcreator.desktop
