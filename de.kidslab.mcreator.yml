@@ -7,12 +7,20 @@ finish-args:
   - --metadata
   - --filesystem=home
   - --share=ipc
-  - --socket=x11
+  - --socket=fallback-x11
   - --socket=wayland
   - --device=dri
   - --share=network
-  - --filesystem=xdg-data/icons
+  # - --filesystem=xdg-data/icons:ro
 modules:
+  - name: de.kidslab.mcreator
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 de.kidslab.mcreator.metainfo.xml /app/share/metainfo/de.kidslab.mcreator.metainfo.xml
+    sources:
+      - type: file
+        path: de.kidslab.mcreator.metainfo.xml
+
   - name: mcreator
     buildsystem: simple
     build-commands:

@@ -5,6 +5,9 @@ on:
     tags:
       - "v*"  # Triggert nur bei Versionstags wie v1.0, v1.1 etc.
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
