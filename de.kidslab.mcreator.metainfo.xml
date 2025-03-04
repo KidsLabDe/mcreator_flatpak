@@ -2,6 +2,7 @@
 <component type="desktop-application">
   <id>de.kidslab.mcreator</id>
   <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
   <name>MCreator</name>
 
   <!-- Füge diesen Abschnitt hinzu oder überprüfe, dass er vorhanden ist -->
@@ -25,13 +26,12 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://mcreator.net/sites/default/files/page_cover/2023-06/mcreator-main-2023.png</image>
+      <image>https://camo.githubusercontent.com/1b154c9d4e192bad9234310a23bccbfac6b9802844fe683866ea47d3c725d7c8/68747470733a2f2f6d63726561746f722e6e65742f696d6167652f61626f75742f61626f7574312e706e67</image>
+      <caption>Overview</caption>
     </screenshot>
     <screenshot>
-      <image>https://mcreator.net/sites/default/files/page_cover/2023-06/mcreator-code-editor.png</image>
-    </screenshot>
-    <screenshot>
-      <image>https://mcreator.net/sites/default/files/page_cover/2023-06/mcreator-3d-model.png</image>
+      <image>https://mcreator.net/sites/default/files/styles/article_picture/public/2024-12/website.webp</image>
+      <caption>Overview</caption>
     </screenshot>
   </screenshots>
 
