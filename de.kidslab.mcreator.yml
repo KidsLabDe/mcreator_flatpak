@@ -52,7 +52,7 @@ modules:
         path: mcreator-wrapper.sh
 
 
-# Füge hier den Menü-Eintrag hinzu, der die .desktop-Datei verwendet
+# Füge hier den Menü-Eintrag hinzu, der die .desktop-Datei verwendete...
   
   - name: mcreator-desktop
     buildsystem: simple
