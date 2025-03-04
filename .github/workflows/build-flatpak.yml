@@ -37,9 +37,3 @@ jobs:
         with:
           name: de.kidslab.mcreator
           path: de.kidslab.mcreator.flatpak
-
-     - name: Release Flatpak
-       if: startsWith(github.ref, 'refs/tags/')
-       uses: softprops/action-gh-release@v2
-       with:
-         files: de.kidslab.mcreator.flatpak
