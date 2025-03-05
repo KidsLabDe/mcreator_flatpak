@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>net.mcreator.mcreator</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>MCreator</name>
+  <summary>Create Minecraft mods without coding</summary>
+  <summary xml:lang="en">Create Minecraft mods without coding</summary>
+  <summary xml:lang="de">Minecraft-Mods ohne Programmierkenntnisse erstellen</summary>
+
+  <description>
+    <p>
+      MCreator is an open-source software used to make Minecraft Java Edition mods, Bedrock Edition add-ons, and data packs 
+      using an intuitive visual interface or programming. It is widely used for mod development and learning Java.
+    </p>
+    <p xml:lang="de">
+      MCreator ist eine Open-Source-Software zur Erstellung von Mods für Minecraft Java Edition, Add-ons für die Bedrock Edition 
+      und Datenpakete mithilfe einer intuitiven visuellen Oberfläche oder Programmierung. Es wird häufig für Mod-Entwicklung 
+      und zum Erlernen von Java verwendet.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">net.mcreator.mcreator.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://mcreator.net/image/about/front1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://mcreator.net/image/about/front10.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://mcreator.net/image/about/front10.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://mcreator.net</url>
+  
+  <developer_name>Pylo</developer_name>
+  
+</component>

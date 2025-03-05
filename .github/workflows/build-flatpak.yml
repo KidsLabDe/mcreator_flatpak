@@ -33,20 +33,20 @@ jobs:
 
       - name: Build Flatpak (User Mode)
         run: |
-          flatpak-builder --user --repo=repo build-dir de.kidslab.mcreator.yml --force-clean
+          flatpak-builder --user --repo=repo build-dir net.mcreator.mcreator.yml --force-clean
 
       - name: Export as Bundle
         run: |
-          flatpak build-bundle repo de.kidslab.mcreator.flatpak de.kidslab.mcreator --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
+          flatpak build-bundle repo net.mcreator.mcreator.flatpak net.mcreator.mcreator --runtime-repo=https://flathub.org/repo/flathub.flatpakrepo
 
       - name: Upload Flatpak Bundle as Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: de.kidslab.mcreator
-          path: de.kidslab.mcreator.flatpak
+          name: net.mcreator.mcreator
+          path: net.mcreator.mcreator.flatpak
 
       - name: Upload to GitHub Releases
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: de.kidslab.mcreator.flatpak
+          files: net.mcreator.mcreator.flatpak

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=MCreator 2024.4
+Comment=Create Minecraft mods without coding
+Exec=/app/bin/mcreator-launcher
+Icon=net.mcreator.mcreator.png
+Terminal=false
+Type=Application
+Categories=Development;
+MimeType=
