@@ -1,4 +1,4 @@
 build-dir
 .flatpak-builder
 repo
-de.kidslab.mcreator.flatpak
+net.mcreator.mcreator.flatpak
