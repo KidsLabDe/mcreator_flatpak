@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=MCreator 2024.2
-Comment=Erstelle Minecraft-Mods mit MCreator
-Exec=/app/bin/mcreator-launcher
-Icon=de.kidslab.mcreator.png
-Terminal=false
-Type=Application
-Categories=Development;
-MimeType=
