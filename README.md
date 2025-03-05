@@ -5,6 +5,12 @@ Using MCreator a lot with courses with kids and youth. Installation is always a 
 
 # Building it
 
+## Prerequisits
+
+```bash
+flatpak install flathub org.freedesktop.Sdk//23.08
+```
+
 ```bash
 flatpak-builder build-dir net.mcreator.mcreator.yml --force-clean
 ```
