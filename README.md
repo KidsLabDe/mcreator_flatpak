@@ -1,6 +1,6 @@
 # mcreator_flatpak
 
-Using MCreator a lot with courses with kids and youth. Installation is always a bit complicated, so let's try a flatpak for a changee
+Using MCreator a lot with courses with kids and youth. Installation is always a bit complicated, so let's try a flatpak for a change
 
 
 # Building it
